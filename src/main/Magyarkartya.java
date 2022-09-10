@@ -82,20 +82,27 @@ public class Magyarkartya {
 //        int ujHossz=ujPakli.size();
         //új oszlopok kialakítása
         boolean kiir=false;
-//        while(kiir==false) {
-            for (int t = 0; t < sor1.size(); t++) {
+        while(kiir==false) {
+            if(kiir==false){
+                for (int t = 0; t < sor1.size(); t++) {
                 if(sor1.get(t).equals(ujErtek)){
                     System.out.println("megvan!");
                     kiir=true;
-            for (int z = 0; z < sor2.size(); z++) {
+            }else if(kiir==false){
+                    for (int z = 0; z < sor2.size(); z++) {
                 if(sor2.get(z).equals(ujErtek)){
                     System.out.println("megvan!");
                     kiir=true;
-            for (int u = 0; u < sor3.size(); u++) {
+                }else{
+                    for (int u = 0; u < sor3.size(); u++) {
                 if(sor3.get(u).equals(ujErtek)){
                      System.out.println("megvan!");
                      kiir=true;
                 }
+                }
+            
+            
+            
                 }
             }
             
@@ -104,7 +111,7 @@ public class Magyarkartya {
             }
                 
         }
-//             }
+             }
         sor1.clear();
         sor2.clear();
         sor3.clear();
