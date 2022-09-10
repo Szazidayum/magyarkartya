@@ -7,15 +7,16 @@ import java.util.Scanner;
 
 public class Magyarkartya {
     
-    static List<String> pakli = new ArrayList<>(21);
+    static List<String> pakli = new ArrayList<>(22);
+    static List<String> ujPakli = new ArrayList<>(22);
     static List<String> sor1 = new ArrayList<>();
     static List<String> sor2 = new ArrayList<>();
     static List<String> sor3 = new ArrayList<>();
     static List<List<String>> kevertP = new ArrayList<>();
     public static Scanner sc = new Scanner(System.in);
-    static int min;
-    Random rnd = new Random();
+    static Random rnd = new Random();
     static String lap;
+    static int ujLap;
     
     public static void main(String[] args) {
         String[] szinek = {"P", "T", "Z", "M"};
@@ -33,7 +34,7 @@ public class Magyarkartya {
                     
                 }
         }
-//              System.out.println(pakli);  
+              System.out.println(pakli);  
         
               int hossz=pakli.size();
               System.out.println(hossz);
@@ -52,26 +53,48 @@ public class Magyarkartya {
              kevertP.add(sor1);
              kevertP.add(sor2);
              kevertP.add(sor3);
-//        System.out.println(sor1);
-//        System.out.println(sor2);
-//        System.out.println(sor3);
+        System.out.println(sor1);
+        System.out.println(sor2);
+        System.out.println(sor3);
    
         //random keverés
-        System.out.println(kevertP);
-        min = kevertP.get(1);
-        System.out.println(min);
-        int hosszKevertP = kevertP.size();
-        for (int i = 0; i < hosszKevertP; i++) {
-            int szam1 = rnd.nextInt( - min + 1) + min;
+
+        for (int i = 0; i < hossz; i++) {
+            ujLap = (int) ((Math.random() * (hossz - 0)) + 0);
+            String ujErtek = pakli.get(ujLap);
+//            System.out.println(ujLap);
+            ujPakli.add(ujErtek);
+//            System.out.println("űj érték:"+ujErtek);
+            pakli.remove(lap);
+//            System.out.println("régi pakli index:"+i);
+            hossz=pakli.size();
+//            System.out.println("űúj pakli size:"+hossz);
         }
+        System.out.println(ujPakli);
         
-        
-        
-//        System.out.println(pakli);
-//        System.out.println("Kérem adja meg a kártya színét:");
-//        String beszin = sc.nextLine();
-//        System.out.println("Kérem adja meg a kártya értékét:");
-//        String beertek = sc.nextLine();
+        sor1.clear();
+        sor2.clear();
+        sor3.clear();
+        int ujHossz=ujPakli.size();
+        //új oszlopok kialakítása
+        for (int k = 0; k < ujHossz; k++) {
+                 if(k<7){
+                    sor1.add(ujPakli.get(k)); 
+                 }
+                
+                if(k>=7 && k<14){
+                    sor2.add(ujPakli.get(k));
+                }
+                if(k>=14){
+                    sor3.add(ujPakli.get(k));
+                }
+            }
+             kevertP.add(sor1);
+             kevertP.add(sor2);
+             kevertP.add(sor3);
+        System.out.println(sor1);
+        System.out.println(sor2);
+        System.out.println(sor3);
     }
     //a kevert megírása, hogy mindig a 11.lap a gondolt legyen! 3x bekérni kell a felhasználótól
     //GRAFikusan a varázslósat
