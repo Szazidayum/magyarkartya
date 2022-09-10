@@ -57,46 +57,76 @@ public class Magyarkartya {
         System.out.println(sor2);
         System.out.println(sor3);
    
-        //random keverés
+        
 
-        for (int i = 0; i < hossz; i++) {
+
+//random keverés
+
+//        for (int i = 0; i < hossz; i++) {
             ujLap = (int) ((Math.random() * (hossz - 0)) + 0);
             String ujErtek = pakli.get(ujLap);
 //            System.out.println(ujLap);
-            ujPakli.add(ujErtek);
-//            System.out.println("űj érték:"+ujErtek);
-            pakli.remove(lap);
-//            System.out.println("régi pakli index:"+i);
-            hossz=pakli.size();
-//            System.out.println("űúj pakli size:"+hossz);
-        }
-        System.out.println(ujPakli);
+            System.out.println(ujErtek);
+//            ujPakli.add(ujErtek);
+////            System.out.println("űj érték:"+ujErtek);
+//            pakli.remove(lap);
+////            System.out.println("régi pakli index:"+i);
+//            hossz=pakli.size();
+////            System.out.println("űúj pakli size:"+hossz);
+//        }
+//        System.out.println(ujPakli);
+//        System.out.println(ujPakli.get(0));
         
+        
+        
+//        int ujHossz=ujPakli.size();
+        //új oszlopok kialakítása
+        boolean kiir=false;
+//        while(kiir==false) {
+            for (int t = 0; t < sor1.size(); t++) {
+                if(sor1.get(t).equals(ujErtek)){
+                    System.out.println("megvan!");
+                    kiir=true;
+            for (int z = 0; z < sor2.size(); z++) {
+                if(sor2.get(z).equals(ujErtek)){
+                    System.out.println("megvan!");
+                    kiir=true;
+            for (int u = 0; u < sor3.size(); u++) {
+                if(sor3.get(u).equals(ujErtek)){
+                     System.out.println("megvan!");
+                     kiir=true;
+                }
+                }
+            }
+            
+            }
+            
+            }
+                
+        }
+//             }
         sor1.clear();
         sor2.clear();
         sor3.clear();
-        int ujHossz=ujPakli.size();
-        //új oszlopok kialakítása
-        for (int k = 0; k < ujHossz; k++) {
-                 if(k<7){
-                    sor1.add(ujPakli.get(k)); 
-                 }
-                
-                if(k>=7 && k<14){
-                    sor2.add(ujPakli.get(k));
-                }
-                if(k>=14){
-                    sor3.add(ujPakli.get(k));
-                }
-            }
-             kevertP.add(sor1);
-             kevertP.add(sor2);
-             kevertP.add(sor3);
-        System.out.println(sor1);
-        System.out.println(sor2);
+//                 if(k<7){
+//                    sor1.add(ujPakli.get(k)); 
+//                 }
+//                
+//                if(k>=7 && k<14){
+//                    sor2.add(ujPakli.get(k));
+//                }
+//                if(k>=14){
+//                    sor3.add(ujPakli.get(k));
+//                }
+//            }
+//             kevertP.add(sor1);
+//             kevertP.add(sor2);
+//             kevertP.add(sor3);
+//        System.out.println(sor1);
+//        System.out.println(sor2);
         System.out.println(sor3);
-    }
+   
     //a kevert megírása, hogy mindig a 11.lap a gondolt legyen! 3x bekérni kell a felhasználótól
     //GRAFikusan a varázslósat
-    
+    } 
 }
