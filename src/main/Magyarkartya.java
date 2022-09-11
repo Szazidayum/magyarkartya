@@ -12,7 +12,7 @@ public class Magyarkartya {
     static List<String> sor1 = new ArrayList<>();
     static List<String> sor2 = new ArrayList<>();
     static List<String> sor3 = new ArrayList<>();
-    static List<List<String>> kevertP = new ArrayList<>();
+    static List<String> segitoSor = new ArrayList<>();
     public static Scanner sc = new Scanner(System.in);
     static Random rnd = new Random();
     static String lap;
@@ -20,6 +20,7 @@ public class Magyarkartya {
     static int ujLap;
     static String ujErtek;
     static int kezdo;
+    static int kivalasztott;
     
     public static void main(String[] args) {
     //a kevert megírása, hogy mindig a 11.lap a gondolt legyen! 3x bekérni kell a felhasználótól
@@ -39,10 +40,11 @@ public class Magyarkartya {
 
               for (int i = 0; i < 3; i++) {
             sorok();
+            bekerRendez();
             randomKeveres();
             ujPakliKezdo();
             ujPakliKeszites();
-            System.out.println(ujPakli);
+//            System.out.println(ujPakli);
             sor1.clear();
             sor2.clear();
             sor3.clear();
@@ -61,18 +63,29 @@ public class Magyarkartya {
                     if(i>=14){
                         sor3.add(pakli.get(i));
                     }}
-                 kevertP.add(sor1);
-                 kevertP.add(sor2);
-                 kevertP.add(sor3);
+        if(kivalasztott==1){
+             segitoSor = sor2;
+             sor2 = sor1;
+             sor1 = segitoSor;
+         }else if(kivalasztott == 3){
+             segitoSor = sor2;
+             sor2 = sor3;
+             sor3 = segitoSor;
+         }
             System.out.println(sor1);
             System.out.println(sor2);
             System.out.println(sor3);
 }
+   
+     private static void bekerRendez(){
+          System.out.println("Kérem adja meg, hogy melyik 'oszlopban' van a kiválasztott lap!");
+          kivalasztott = sc.nextInt();       
+     }
      
      private static String randomKeveres(){
            ujLap = (int) ((Math.random() * (hossz - 0)) + 0);
             ujErtek = pakli.get(ujLap);
-            System.out.println(ujErtek);
+//            System.out.println(ujErtek);
             return ujErtek;
      }
      
