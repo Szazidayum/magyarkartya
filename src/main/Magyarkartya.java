@@ -37,17 +37,17 @@ public class Magyarkartya {
               System.out.println(pakli);  
               hossz=pakli.size();
 
+              for (int i = 0; i < 3; i++) {
             sorok();
             randomKeveres();
             ujPakliKezdo();
             ujPakliKeszites();
-
-//        sor1.clear();
-//        sor2.clear();
-//        sor3.clear();
-        
-        System.out.println(pakli);
-        System.out.println(ujPakli);
+            System.out.println(ujPakli);
+            sor1.clear();
+            sor2.clear();
+            sor3.clear();
+            ujPakli.clear();
+        }      
     }
     
      private static void sorok(){
