@@ -35,20 +35,23 @@ public class Magyarkartya {
             if(!("MX".equals(lap) || "MIX".equals(lap) || "MVIII".equals(lap))){
                     pakli.add(lap);}  
                 }}
-              System.out.println(pakli);  
+//              System.out.println(pakli);  
               hossz=pakli.size();
-
-              for (int i = 0; i < 3; i++) {
-            sorok();
-            bekerRendez();
+               
+                sorok();
+                
+              for (int i = 0; i < 3; i++) {      
+            beker();
+            rendez();
             randomKeveres();
             ujPakliKezdo();
             ujPakliKeszites();
+            ujSorok(); 
 //            System.out.println(ujPakli);
-            sor1.clear();
-            sor2.clear();
-            sor3.clear();
-            ujPakli.clear();
+//            sor1.clear();
+//            sor2.clear();
+//            sor3.clear();
+//            ujPakli.clear();
         }      
     }
     
@@ -63,7 +66,24 @@ public class Magyarkartya {
                     if(i>=14){
                         sor3.add(pakli.get(i));
                     }}
-        if(kivalasztott==1){
+            System.out.println(sor1);
+            System.out.println(sor2);
+            System.out.println(sor3);
+}
+     private static void ujSorok(){
+        for (int i = 0; i < hossz; i++) {
+                     if(i<7){
+                        sor1.add(ujPakli.get(i)); 
+                     }
+                    if(i>=7 && i<14){
+                        sor2.add(ujPakli.get(i));
+                    }
+                    if(i>=14){
+                        sor3.add(ujPakli.get(i));
+                    }}
+}
+     private static void rendez(){
+          if(kivalasztott==1){
              segitoSor = sor2;
              sor2 = sor1;
              sor1 = segitoSor;
@@ -75,18 +95,18 @@ public class Magyarkartya {
             System.out.println(sor1);
             System.out.println(sor2);
             System.out.println(sor3);
-}
+     }
    
-     private static void bekerRendez(){
+     private static void beker(){
           System.out.println("Kérem adja meg, hogy melyik 'oszlopban' van a kiválasztott lap!");
           kivalasztott = sc.nextInt();       
      }
      
-     private static String randomKeveres(){
+     private static void randomKeveres(){
+           
            ujLap = (int) ((Math.random() * (hossz - 0)) + 0);
             ujErtek = pakli.get(ujLap);
 //            System.out.println(ujErtek);
-            return ujErtek;
      }
      
    private static boolean ujPakliKezdo(){
@@ -106,6 +126,10 @@ public class Magyarkartya {
                      kiir=true;
                 }}}}}}}
              }
+            sor1.clear();
+            sor2.clear();
+            sor3.clear();
+            ujPakli.clear();
         
         return kiir;
 }
@@ -114,7 +138,6 @@ public class Magyarkartya {
         for (int a = ujLap; a < hossz; a++) {
                ujPakli.add(pakli.get(a));
             }
-        
         for (int k = 0; k < ujLap; k++) {
             ujPakli.add(pakli.get(k));
         }
